@@ -1,4 +1,5 @@
 import vangoghImg from "./assets/images/vangogh.jpg";
+import Navbar from "./components/Navbar";
 import "./App.css";
 import Footer from "./components/footer";
 
@@ -6,13 +7,8 @@ function App() {
   return (
     <>
       <header>
-        <nav>
-          <ul>
-            <li>Home</li>
-            <li>Favoris</li>
-            <li>À propos</li>
-          </ul>
-        </nav>
+        <Navbar />
+        {/* J'ai effacé toute la nav pour la mettre dans le composant Navbar.tsx*/}
         <h1>WeArt</h1>
         <input /> Rechercher
       </header>
