@@ -1,6 +1,7 @@
 import vangoghImg from "./assets/images/vangogh.jpg";
 import Navbar from "./components/Navbar";
 import "./App.css";
+import Footer from "./components/footer";
 
 function App() {
   return (
@@ -25,12 +26,9 @@ function App() {
       </main>
 
       <footer>
-        <p>
-          Disclaimer : <br /> Les œuvres et images sont présentées à des fins
-          éducatives. Les droits d'auteur appartiennent à leurs détenteurs. Nous
-          ne garantissons pas l'exactitude des informations.
-        </p>
-        <p>Copyright 2024 ©</p>
+        <div className="Footer">
+          <Footer />
+        </div>
       </footer>
     </>
   );
