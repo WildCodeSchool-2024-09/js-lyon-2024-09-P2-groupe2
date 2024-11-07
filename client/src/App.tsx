@@ -1,5 +1,6 @@
 import vangoghImg from "./assets/images/vangogh.jpg";
 import "./App.css";
+import Logo from "./components/Logo";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
             <li>À propos</li>
           </ul>
         </nav>
-        <h1>WeArt</h1>
+        {/* <h1>WeArt</h1> */}
+        <Logo />
         <input /> Rechercher
       </header>
       <main>
