@@ -3,13 +3,11 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 
 function App() {
-
   return (
     <>
       <header>
-        <Navbar  />
-          {/* J'ai effacé toute la nav pour la mettre dans le composant Navbar.tsx*/}
-
+        <Navbar />
+        {/* J'ai effacé toute la nav pour la mettre dans le composant Navbar.tsx*/}
         <h1>WeArt</h1>
         <input /> Rechercher
       </header>

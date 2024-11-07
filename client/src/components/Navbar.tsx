@@ -1,10 +1,7 @@
-import "./Navbar.css"
+import "./Navbar.css";
 
 function Navbar() {
-
-    const handleClick = (): void =>{
-
-    }
+  const handleClick = (): void => {};
 
   return (
     <div>
