@@ -1,3 +1,8 @@
+import basqImg from "./assets/images/basquiat.jpg";
+import fridaImg from "./assets/images/frida.jpg";
+import klimtImg from "./assets/images/klimt.jpg";
+import munchImg from "./assets/images/lecri.jpg";
+import terrasseImg from "./assets/images/terrasse.jpg";
 import Navbar from "./components/Navbar";
 import "./App.css";
 import Logo from "./components/Logo";
@@ -14,16 +19,15 @@ function App() {
         <SearchBar />
       </header>
       <main>
-        {/* <img className="vgImg" src={vangoghImg} alt="vangogh" />
-        <img className="vgImg" src={vangoghImg} alt="vangogh" />
-        <img className="vgImg" src={vangoghImg} alt="vangogh" />
-        <img className="vgImg" src={vangoghImg} alt="vangogh" />
-        <img className="vgImg" src={vangoghImg} alt="vangogh" />
-        <img className="vgImg" src={vangoghImg} alt="vangogh" />
-        <img className="vgImg" src={vangoghImg} alt="vangogh" />
-        <img className="vgImg" src={vangoghImg} alt="vangogh" />
-        <img className="vgImg" src={vangoghImg} alt="vangogh" />
-        <img className="vgImg" src={vangoghImg} alt="vangogh" /> */}
+        <img className="basquiatImg" src={basqImg} alt="peinture de Basquiat" />
+        <img className="fridaImg" src={fridaImg} alt="peinture de Frida" />
+        <img className="klimtImg" src={klimtImg} alt="peinture de Klimt" />
+        <img className="munchImg" src={munchImg} alt="peinture de Munch" />
+        <img
+          className="terrasseImg"
+          src={terrasseImg}
+          alt="peinture de Vangogh"
+        />
       </main>
 
       <footer>
