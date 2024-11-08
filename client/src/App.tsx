@@ -1,18 +1,16 @@
+import Navbar from "./components/Navbar";
 import "./App.css";
 import SearchBar from "./components/SearchBar";
+import Logo from "./components/Logo";
+import Footer from "./components/footer";
 
 function App() {
   return (
     <>
       <header>
-        <nav>
-          <ul>
-            <li>Home</li>
-            <li>Favoris</li>
-            <li>À propos</li>
-          </ul>
-        </nav>
-        <h1>WeArt</h1>
+        <Navbar />
+        {/* <h1>WeArt</h1> */}
+        <Logo />
         <SearchBar />
       </header>
       <main>
@@ -29,12 +27,9 @@ function App() {
       </main>
 
       <footer>
-        <p>
-          Disclaimer : <br /> Les œuvres et images sont présentées à des fins
-          éducatives. Les droits d'auteur appartiennent à leurs détenteurs. Nous
-          ne garantissons pas l'exactitude des informations.
-        </p>
-        <p>Copyright 2024 ©</p>
+        <div className="Footer">
+          <Footer />
+        </div>
       </footer>
     </>
   );
