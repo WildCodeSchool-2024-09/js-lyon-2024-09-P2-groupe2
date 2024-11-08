@@ -1,7 +1,7 @@
-import vangoghImg from "./assets/images/vangogh.jpg";
 import Navbar from "./components/Navbar";
 import "./App.css";
 import Logo from "./components/Logo";
+import SearchBar from "./components/SearchBar";
 import Footer from "./components/footer";
 
 function App() {
@@ -11,9 +11,10 @@ function App() {
         <Navbar />
         {/* <h1>WeArt</h1> */}
         <Logo />
-        <input /> Rechercher
+        <SearchBar />
       </header>
       <main>
+        {/* <img className="vgImg" src={vangoghImg} alt="vangogh" />
         <img className="vgImg" src={vangoghImg} alt="vangogh" />
         <img className="vgImg" src={vangoghImg} alt="vangogh" />
         <img className="vgImg" src={vangoghImg} alt="vangogh" />
@@ -22,8 +23,7 @@ function App() {
         <img className="vgImg" src={vangoghImg} alt="vangogh" />
         <img className="vgImg" src={vangoghImg} alt="vangogh" />
         <img className="vgImg" src={vangoghImg} alt="vangogh" />
-        <img className="vgImg" src={vangoghImg} alt="vangogh" />
-        <img className="vgImg" src={vangoghImg} alt="vangogh" />
+        <img className="vgImg" src={vangoghImg} alt="vangogh" /> */}
       </main>
 
       <footer>
