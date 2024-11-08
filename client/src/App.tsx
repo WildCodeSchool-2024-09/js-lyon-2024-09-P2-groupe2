@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import "./App.css";
-import SearchBar from "./components/SearchBar";
 import Logo from "./components/Logo";
+import SearchBar from "./components/SearchBar";
 import Footer from "./components/footer";
 
 function App() {
