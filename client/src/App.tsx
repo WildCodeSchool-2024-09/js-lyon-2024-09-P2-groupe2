@@ -1,37 +1,39 @@
-import vangoghImg from "./assets/images/vangogh.jpg";
-import "./App.css"; 
+import basqImg from "./assets/images/basquiat.jpg";
+import fridaImg from "./assets/images/frida.jpg";
+import klimtImg from "./assets/images/klimt.jpg";
+import munchImg from "./assets/images/lecri.jpg";
+import terrasseImg from "./assets/images/terrasse.jpg";
+import Navbar from "./components/Navbar";
+import "./App.css";
+import Logo from "./components/Logo";
+import SearchBar from "./components/SearchBar";
+import Footer from "./components/footer";
 
 function App() {
   return (
     <>
-      <header> 
-        <nav>
-          <ul>
-            <li>Home</li>
-            <li>Favoris</li>
-            <li>À propos</li>
-          </ul>
-       </nav>
-       <h1>WeArt</h1>
-       <input/> Rechercher
+      <header>
+        <Navbar />
+        {/* <h1>WeArt</h1> */}
+        <Logo />
+        <SearchBar />
       </header>
       <main>
-        <img className="vgImg" src={vangoghImg} alt='vangogh'/>
-        <img className="vgImg" src={vangoghImg} alt='vangogh'/>
-        <img className="vgImg" src={vangoghImg} alt='vangogh'/>
-        <img className="vgImg" src={vangoghImg} alt='vangogh'/>
-        <img className="vgImg" src={vangoghImg} alt='vangogh'/>
-        <img className="vgImg" src={vangoghImg} alt='vangogh'/>
-        <img className="vgImg" src={vangoghImg} alt='vangogh'/>
-        <img className="vgImg" src={vangoghImg} alt='vangogh'/>
-        <img className="vgImg" src={vangoghImg} alt='vangogh'/>
-        <img className="vgImg" src={vangoghImg} alt='vangogh'/>
+        <img className="basquiatImg" src={basqImg} alt="peinture de Basquiat" />
+        <img className="fridaImg" src={fridaImg} alt="peinture de Frida" />
+        <img className="klimtImg" src={klimtImg} alt="peinture de Klimt" />
+        <img className="munchImg" src={munchImg} alt="peinture de Munch" />
+        <img
+          className="terrasseImg"
+          src={terrasseImg}
+          alt="peinture de Vangogh"
+        />
       </main>
 
       <footer>
-        <p>Disclaimer : <br/> Les œuvres et images sont présentées à des fins éducatives. Les droits d'auteur appartiennent à leurs détenteurs. Nous ne garantissons pas l'exactitude des informations.</p>
-        <p>Copyright 2024 ©</p>
-
+        <div className="Footer">
+          <Footer />
+        </div>
       </footer>
     </>
   );
