@@ -1,19 +1,15 @@
-import Navbar from "./components/Navbar";
 import "./App.css";
 import CardArt from "./components/CardArt";
-import Logo from "./components/Logo";
+import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import Footer from "./components/footer";
 
 function App() {
   return (
     <>
-      <header>
-        <Navbar />
-        <Logo />
-        <SearchBar />
-      </header>
+      <Header />
       <main>
+        <SearchBar />
         <CardArt />
         <CardArt />
         <CardArt />
