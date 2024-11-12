@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import "./App.css";
+import { Outlet } from "react-router-dom";
 import CardArt from "./components/CardArt";
 import Logo from "./components/Logo";
 import SearchBar from "./components/SearchBar";
@@ -14,6 +15,7 @@ function App() {
         <SearchBar />
       </header>
       <main>
+        <Outlet />
         <CardArt />
         <CardArt />
         <CardArt />
