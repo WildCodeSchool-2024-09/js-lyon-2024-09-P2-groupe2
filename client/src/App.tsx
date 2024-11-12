@@ -1,4 +1,5 @@
 import "./App.css";
+import { Outlet } from "react-router-dom";
 import CardArt from "./components/CardArt";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <main>
         <SearchBar />
+        <Outlet />
         <CardArt />
         <CardArt />
         <CardArt />
