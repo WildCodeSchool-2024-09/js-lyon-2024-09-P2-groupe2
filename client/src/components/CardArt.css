@@ -1,9 +1,0 @@
-main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.basquiatImg {
-  width: 35vw;
-  margin: 1em;
-}
