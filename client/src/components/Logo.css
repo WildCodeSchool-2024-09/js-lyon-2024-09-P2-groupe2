@@ -1,4 +1,9 @@
+.logoWeArt img {
+  width: 100%;
+  max-width: 7em;
+  height: auto;
+}
+
 .logoWeArt {
-  width: 6em;
   text-align: center;
 }
