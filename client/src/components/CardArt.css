@@ -1,0 +1,10 @@
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: aqua;
+}
+.basquiatImg {
+  width: 35vw;
+  margin: 1em;
+}
