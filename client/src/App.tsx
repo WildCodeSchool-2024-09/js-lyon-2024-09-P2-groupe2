@@ -1,9 +1,9 @@
 import "./App.css";
 import { Outlet } from "react-router-dom";
 import CardArt from "./components/CardArt";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
-import Footer from "./components/footer";
 
 function App() {
   return (
@@ -23,12 +23,7 @@ function App() {
         <CardArt />
         <CardArt />
       </main>
-
-      <footer>
-        <div className="Footer">
-          <Footer />
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
