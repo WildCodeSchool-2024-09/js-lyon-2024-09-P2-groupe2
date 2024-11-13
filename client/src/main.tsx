@@ -7,6 +7,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 // Import the main app component
 import App from "./App";
+import A_Propos from "./pages/A_propos";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/a-propos",
-        element: <h2>Welcome from About</h2>,
+        element: <A_Propos />,
       },
 
       // Renders the App component for the home page
