@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import CardArt from "./components/CardArt";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -23,12 +23,7 @@ function App() {
         <CardArt />
         <CardArt />
       </main>
-
-      <footer>
-        <div className="Footer">
-          <Footer />
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
