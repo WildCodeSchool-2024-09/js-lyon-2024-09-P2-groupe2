@@ -7,3 +7,9 @@ main {
   width: 35vw;
   margin: 1em;
 }
+.cardArtImg {
+  width: 35vw;
+}
+.imgTitle {
+  font-size: small;
+}
