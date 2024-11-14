@@ -30,8 +30,12 @@ function CardArt({ id }: propsType) {
     <div>
       {fetchArt ? (
         <>
-          <img src={fetchArt.primaryImageSmall} alt={fetchArt.title} />
-          <h2>{fetchArt.title}</h2>
+          <img
+            className="cardArtImg"
+            src={fetchArt.primaryImageSmall}
+            alt={fetchArt.title}
+          />
+          <h2 className="imgTitle">{fetchArt.title}</h2>
         </>
       ) : (
         <p>Loading...</p>
