@@ -8,6 +8,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // Import the main app component
 import App from "./App";
 import A_Propos from "./pages/A_propos";
+import Favoris from "./pages/Favoris";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -21,18 +22,19 @@ import A_Propos from "./pages/A_propos";
 // You can add more routes as you build out your app!
 const router = createBrowserRouter([
   {
+    path: "/",
     element: <App />,
     children: [
       {
-        path: "/", // The root path
+        path: "", // The root path
         element: <h1>Welcome from Home</h1>,
       },
       {
-        path: "/favoris",
-        element: <h2>Welcome from Favorites</h2>,
+        path: "favoris",
+        element: <Favoris />,
       },
       {
-        path: "/a-propos",
+        path: "a-propos",
         element: <A_Propos />,
       },
 
