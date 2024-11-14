@@ -1,0 +1,15 @@
+.mainFavoris {
+  display: block;
+  padding: 1em;
+}
+
+.mainFavoris p {
+  text-align: justify;
+  font-size: x-large;
+}
+
+.CardArtFavorites {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

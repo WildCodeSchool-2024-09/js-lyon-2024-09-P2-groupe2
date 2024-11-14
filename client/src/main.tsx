@@ -8,6 +8,8 @@ import HomePage from "../src/pages/HomePage";
 
 // Import the main app component
 import App from "./App";
+import A_Propos from "./pages/A_propos";
+import Favoris from "./pages/Favoris";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -21,19 +23,20 @@ import App from "./App";
 // You can add more routes as you build out your app!
 const router = createBrowserRouter([
   {
+    path: "/",
     element: <App />,
     children: [
       {
-        path: "/", // The root path
+        path: "", // The root path
         element: <HomePage />,
       },
       {
-        path: "/favoris",
-        element: <h2>Welcome from Favorites</h2>,
+        path: "favoris",
+        element: <Favoris />,
       },
       {
-        path: "/a-propos",
-        element: <h2>Welcome from About</h2>,
+        path: "a-propos",
+        element: <A_Propos />,
       },
 
       // Renders the App component for the home page
