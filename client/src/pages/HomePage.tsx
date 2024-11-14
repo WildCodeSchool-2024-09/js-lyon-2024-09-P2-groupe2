@@ -5,8 +5,10 @@ import "./HomePage.css";
 const HomePage = () => {
   return (
     <div className="sbhomepage">
-     <div className="searchcarcl"><SearchBar /></div>
-     <div className="cardart">
+      <div className="searchcarcl">
+        <SearchBar />
+      </div>
+      <div className="cardart">
         <CardArt />
         <CardArt />
         <CardArt />
