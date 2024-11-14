@@ -2,6 +2,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import HomePage from "../src/pages/HomePage";
 
 /* ************************************************************************* */
 
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/", // The root path
-        element: <h1>Welcome from Home</h1>,
+        element: <HomePage />,
       },
       {
         path: "/favoris",
