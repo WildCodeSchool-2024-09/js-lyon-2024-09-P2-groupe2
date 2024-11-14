@@ -20,7 +20,7 @@
 }
 
 .cardart {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(9.4em, 1fr));
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
