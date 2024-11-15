@@ -2,15 +2,15 @@ import "./A_propos.css";
 import dreamTeam from "../assets/images/dreamteam.jpg";
 function A_Propos() {
   return (
-    <>
+    <section className="mainAbout">
       <section className="dreamTeamSection">
         <img className="dreamTeam" src={dreamTeam} alt="photo-d'equipe" />
         <br />
-        <h1 className="titre-a-propos">Our dream team</h1>
-        <h2 className="soustitre-apropos">Nos idées</h2>
+        <h1 id="titre-a-propos">Our dream team</h1>
       </section>
-      <div className="textes">
-        <p>
+      <div className="textesEtSousTitre">
+        <h2 id="soustitre-apropos">Nos idées</h2>
+        <p id="text">
           WeArt nait du besoin de vulgariser l'art grâce à un moyen accessible
           comme la technologie. Lorem ipsum, dolor sit amet consectetur
           adipisicing elit. Nesciunt laborum amet omnis! Beatae aliquam cum
@@ -21,7 +21,7 @@ function A_Propos() {
           accusamus quis nostrum et maxime error.
         </p>
       </div>
-    </>
+    </section>
   );
 }
 
