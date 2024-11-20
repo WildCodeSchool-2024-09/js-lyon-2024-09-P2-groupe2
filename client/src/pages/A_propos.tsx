@@ -9,16 +9,15 @@ function A_Propos() {
         <h1 id="titre-a-propos">Our dream team</h1>
       </section>
       <div className="textesEtSousTitre">
-        <h2 id="soustitre-apropos">Nos idées</h2>
+        <h2 id="soustitre-apropos">Our ideas</h2>
         <p id="text">
-          WeArt nait du besoin de vulgariser l'art grâce à un moyen accessible
-          comme la technologie. Lorem ipsum, dolor sit amet consectetur
-          adipisicing elit. Nesciunt laborum amet omnis! Beatae aliquam cum
-          dolores libero sed quisquam, quae aut asperiores. Ea neque a porro
-          dolores repudiandae quos excepturi. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Amet iusto ipsam excepturi autem, saepe
-          distinctio asperiores error doloremque maxime id. Eos porro magnam eum
-          accusamus quis nostrum et maxime error.
+          Lorem ipsum, dolor sit amet consectetur adipisicing else. Nesciunt
+          laborum amet omnis! Beatae aliquam cum dolores libero sed quisquam,
+          quae aut asperiores. Ea neque a porro dolores repudiandae quos
+          excepturi. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Amet iusto ipsam excepturi autem, saepe distinctio asperiores error
+          doloremque maxime id. Eos porro magnam eum accusamus quis nostrum et
+          maxime error.
         </p>
       </div>
     </section>

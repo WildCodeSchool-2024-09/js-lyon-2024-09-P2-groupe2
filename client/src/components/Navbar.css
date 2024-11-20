@@ -32,7 +32,7 @@ nav ul li {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 8em;
+  width: 10em;
 }
 
 .button-54:active {
