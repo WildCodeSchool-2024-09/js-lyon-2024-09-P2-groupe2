@@ -17,13 +17,13 @@ function Navbar() {
           <li>
             {/* {" "} */}
             <button type="button" className="button-54" onClick={handleClick}>
-              Favoris
+              Favourites
             </button>
           </li>
           <li>
             {/* {" "} */}
             <button type="button" className="button-54" onClick={handleClick}>
-              À propos
+              About
             </button>
           </li>
         </ul>
