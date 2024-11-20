@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 import "./CardArt.css";
 
 interface FetchArt {
@@ -7,7 +8,6 @@ interface FetchArt {
   primaryImageSmall: string;
   artistDisplayName: string;
   country: string;
-  
 }
 
 interface propsType {
@@ -38,7 +38,9 @@ function CardArt({ id }: propsType) {
 
           {/* Transmettre fetchArt dans state */}
           <Link to={`/article/${id}`} state={fetchArt}>
-            <button type="button" className="detailsButton">Voir plus de détails</button>
+            <button type="button" className="detailsButton">
+              Voir plus de détails
+            </button>
           </Link>
         </>
       ) : (

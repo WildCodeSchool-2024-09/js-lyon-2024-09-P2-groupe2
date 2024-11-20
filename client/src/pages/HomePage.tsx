@@ -2,7 +2,7 @@ import CardArt from "../components/CardArt";
 import SearchBar from "../components/SearchBar";
 import "./HomePage.css";
 
-const HomePage = () =>  {
+const HomePage = () => {
   const oeuvres = [
     "40",
     "100",

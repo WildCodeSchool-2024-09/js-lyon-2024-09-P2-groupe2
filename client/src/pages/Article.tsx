@@ -15,7 +15,7 @@ interface FetchArt {
 
 function Article() {
   const location = useLocation();
-  const artDetails = location.state as FetchArt; 
+  const artDetails = location.state as FetchArt;
 
   if (!artDetails) {
     return <div>Work not found</div>;

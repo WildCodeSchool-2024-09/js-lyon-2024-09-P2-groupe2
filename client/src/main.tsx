@@ -4,14 +4,14 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomePage from "../src/pages/HomePage";
 
-
 /* ************************************************************************* */
 
 // Import the main app component
 import App from "./App";
 import A_Propos from "./pages/A_propos";
-import Favoris from "./pages/Favoris";
 import Article from "./pages/Article";
+import Favoris from "./pages/Favoris";
+
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
 
