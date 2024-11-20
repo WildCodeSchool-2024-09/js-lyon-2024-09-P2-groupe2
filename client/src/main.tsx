@@ -9,6 +9,7 @@ import HomePage from "../src/pages/HomePage";
 // Import the main app component
 import App from "./App";
 import A_Propos from "./pages/A_propos";
+import Article from "./pages/Article";
 import Favoris from "./pages/Favoris";
 
 // Import additional components for new routes
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "a-propos",
         element: <A_Propos />,
+      },
+      {
+        path: "article/:id",
+        element: <Article />,
       },
 
       // Renders the App component for the home page
