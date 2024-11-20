@@ -1,15 +1,39 @@
-main {
+.cardArtContainer {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5em;
+  border-radius: 1em;
+  background-color: #cbcbcb;
+  width: 44vw;
+  max-width: 15em;
+  height: 44vh;
+  max-height: 15em;
+  box-sizing: border-box;
+  margin: 0.5em;
 }
-.basquiatImg {
-  width: 35vw;
-  margin: 1em;
-}
+
 .cardArtImg {
-  width: 35vw;
+  max-width: 100%;
+  max-height: 70%;
 }
+
 .imgTitle {
   font-size: small;
+  text-align: center;
+  font-family: monospace;
+  margin-top: auto;
+}
+
+.likeButton {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+#loading {
+  font-size: large;
+  text-align: center;
+  font-family: monospace;
 }
