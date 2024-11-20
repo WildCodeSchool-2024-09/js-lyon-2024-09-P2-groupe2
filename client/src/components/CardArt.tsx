@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./CardArt.css";
 
@@ -6,6 +7,7 @@ interface FetchArt {
   primaryImageSmall: string;
   artistDisplayName: string;
   country: string;
+  
 }
 
 interface propsType {
@@ -14,16 +16,13 @@ interface propsType {
 
 function CardArt({ id }: propsType) {
   const [fetchArt, setFetchArt] = useState<FetchArt | null>(null);
+
   useEffect(() => {
     fetch(
       `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`,
     )
-      .then((resultatApi) => {
-        return resultatApi.json();
-      })
-      .then((responseJson) => {
-        setFetchArt(responseJson);
-      });
+      .then((resultatApi) => resultatApi.json())
+      .then((responseJson) => setFetchArt(responseJson));
   }, [id]);
 
   return (
@@ -36,11 +35,17 @@ function CardArt({ id }: propsType) {
             alt={fetchArt.title}
           />
           <h2 className="imgTitle">{fetchArt.title}</h2>
+
+          {/* Transmettre fetchArt dans state */}
+          <Link to={`/article/${id}`} state={fetchArt}>
+            <button type="button" className="detailsButton">Voir plus de détails</button>
+          </Link>
         </>
       ) : (
-        <p>Loading...</p>
+        <p>Chargement...</p>
       )}
     </div>
   );
 }
+
 export default CardArt;
