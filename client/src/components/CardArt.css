@@ -24,6 +24,7 @@
   text-align: center;
   font-family: monospace;
   margin-top: auto;
+  overflow: hidden;
 }
 
 .likeButton {
