@@ -7,7 +7,7 @@ export default function Favoris() {
   return (
     <>
       <section className="mainFavoris">
-        <p>Ci-dessous vos pièces d'arts préférées :</p>
+        <p>Below your favorite art pieces :</p>
         {/* <div className="cardart">
           {oeuvres.map((number) => (
             <CardArt key={number} id={number} />

@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 import "./CardArt.css";
 
 interface FetchArt {
@@ -22,12 +24,8 @@ function CardArt({ id, likeCount, setLikeCount }: propsType) {
     fetch(
       `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`,
     )
-      .then((resultatApi) => {
-        return resultatApi.json();
-      })
-      .then((responseJson) => {
-        setFetchArt(responseJson);
-      });
+      .then((resultatApi) => resultatApi.json())
+      .then((responseJson) => setFetchArt(responseJson));
   }, [id]);
 
   function toggleLike() {
@@ -53,6 +51,13 @@ function CardArt({ id, likeCount, setLikeCount }: propsType) {
           <button type="button" className="likeButton" onClick={toggleLike}>
             {isLiked === false ? "🤍" : "❤️"}
           </button>
+
+          {/* Transmettre fetchArt dans state */}
+          <Link to={`/article/${id}`} state={fetchArt}>
+            <button type="button" className="detailsButton">
+              See more
+            </button>
+          </Link>
         </>
       ) : (
         <p id="loading">Loading...</p>
