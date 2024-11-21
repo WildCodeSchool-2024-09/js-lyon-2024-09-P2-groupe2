@@ -37,35 +37,6 @@ function Navbar() {
         </li>
       </ul>
     </nav>
-
-    //l'ancien code au cas où :
-
-    // <div>
-    //   <header className="color-header">
-    //   <nav>
-    //     <ul>
-    //       <li>
-    //         {" "}
-    //         <button type="button" className="button-54" onClick={handleClick}>
-    //           Home
-    //         </button>
-    //       </li>
-    //       <li>
-    //         {" "}
-    //         <button type="button" className="button-54" onClick={handleClick}>
-    //           Favourites
-    //         </button>
-    //       </li>
-    //       <li>
-    //         {" "}
-    //         <button type="button" className="button-54" onClick={handleClick}>
-    //           About
-    //         </button>
-    //       </li>
-    //     </ul>
-    //   </nav>
-    //   </header>
-    // </div>
   );
 }
 
