@@ -1,18 +1,18 @@
-import CardArt from "../components/CardArt";
+// import CardArt from "../components/CardArt";
 import "./Favoris.css";
 
 export default function Favoris() {
-  const oeuvres = ["40", "100", "45"];
+  // const oeuvres = ["40", "100", "45"];
 
   return (
     <>
       <section className="mainFavoris">
         <p>Below your favorite art pieces :</p>
-        <div className="cardart">
+        {/* <div className="cardart">
           {oeuvres.map((number) => (
             <CardArt key={number} id={number} />
           ))}
-        </div>
+        </div> */}
       </section>
     </>
   );

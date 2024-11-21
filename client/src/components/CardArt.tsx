@@ -12,10 +12,13 @@ interface FetchArt {
 
 interface propsType {
   id: string;
+  likeCount: number;
+  setLikeCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
-function CardArt({ id }: propsType) {
+function CardArt({ id, likeCount, setLikeCount }: propsType) {
   const [fetchArt, setFetchArt] = useState<FetchArt | null>(null);
+  const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
     fetch(
@@ -25,8 +28,18 @@ function CardArt({ id }: propsType) {
       .then((responseJson) => setFetchArt(responseJson));
   }, [id]);
 
+  function toggleLike() {
+    if (isLiked === false) {
+      setIsLiked(true);
+      setLikeCount(likeCount + 1);
+    } else {
+      setIsLiked(false);
+      setLikeCount(likeCount - 1);
+    }
+  }
+
   return (
-    <div>
+    <article className="cardArtContainer">
       {fetchArt ? (
         <>
           <img
@@ -35,18 +48,21 @@ function CardArt({ id }: propsType) {
             alt={fetchArt.title}
           />
           <h2 className="imgTitle">{fetchArt.title}</h2>
+          <button type="button" className="likeButton" onClick={toggleLike}>
+            {isLiked === false ? "🤍" : "❤️"}
+          </button>
 
           {/* Transmettre fetchArt dans state */}
           <Link to={`/article/${id}`} state={fetchArt}>
             <button type="button" className="detailsButton">
-              Voir plus de détails
+              See more
             </button>
           </Link>
         </>
       ) : (
-        <p>Chargement...</p>
+        <p id="loading">Loading...</p>
       )}
-    </div>
+    </article>
   );
 }
 
