@@ -1,35 +1,42 @@
 import "./Navbar.css";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
-  const handleClick = (): void => {};
-
   return (
-    <div>
-      {/* <header className="color-header"> */}
-      <nav>
-        <ul>
-          <li>
-            {/* {" "} */}
-            <button type="button" className="button-54" onClick={handleClick}>
-              Home
-            </button>
-          </li>
-          <li>
-            {/* {" "} */}
-            <button type="button" className="button-54" onClick={handleClick}>
-              Favoris
-            </button>
-          </li>
-          <li>
-            {/* {" "} */}
-            <button type="button" className="button-54" onClick={handleClick}>
-              À propos
-            </button>
-          </li>
-        </ul>
-      </nav>
-      {/* </header> */}
-    </div>
+    <nav className="navigation">
+      <ul>
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? "button-54 button-54-active" : "button-54"
+            }
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/favorites"
+            className={({ isActive }) =>
+              isActive ? "button-54 button-54-active" : "button-54"
+            }
+          >
+            Favourites
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive ? "button-54 button-54-active" : "button-54"
+            }
+          >
+            About
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
   );
 }
 

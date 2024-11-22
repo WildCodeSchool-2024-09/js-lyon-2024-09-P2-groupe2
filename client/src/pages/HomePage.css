@@ -13,10 +13,11 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  flex-direction: row-reverse;
+  /*j'ai commenté ces lignes pour que ça ne force pas mon titre "Liked artworks:" à se mettre au millieu et ça ne change rien dans la structure globale*/
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* flex-wrap: wrap; */
+  /* flex-direction: row-reverse; */
 }
 
 .cardart {
