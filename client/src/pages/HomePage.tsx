@@ -5,7 +5,7 @@ import SearchBar from "../components/SearchBar";
 import "./HomePage.css";
 
 const HomePage = () => {
-  const [likeCount, setLikeCount] = useState(0);
+  const [likeCount, setLikeCount] = useState(0); // Compteur des likes
 
   const oeuvres = [
     "392000",
@@ -20,6 +20,11 @@ const HomePage = () => {
     "435860",
   ];
 
+  // Mise à jour du compteur de likes
+  const updateLikeCount = (increment: boolean) => {
+    setLikeCount((prevCount) => (increment ? prevCount + 1 : prevCount - 1));
+  };
+
   return (
     <div className="sbhomepage">
       <div className="searchcarcl">
@@ -32,7 +37,7 @@ const HomePage = () => {
             key={number}
             id={number}
             likeCount={likeCount}
-            setLikeCount={setLikeCount}
+            updateLikeCount={updateLikeCount} // Passer la fonction updateLikeCount pour gérer le like
           />
         ))}
       </div>
