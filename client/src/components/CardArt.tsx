@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./CardArt.css";
+import { useFavorites } from "../contexts/FavoritesContext";
 
 interface FetchArt {
   title: string;
@@ -12,13 +13,16 @@ interface FetchArt {
 
 interface propsType {
   id: string;
-  likeCount: number;
-  setLikeCount: React.Dispatch<React.SetStateAction<number>>;
+  likeCount: number | null;
+  setLikeCount: React.Dispatch<React.SetStateAction<number>> | null;
 }
 
 function CardArt({ id, likeCount, setLikeCount }: propsType) {
   const [fetchArt, setFetchArt] = useState<FetchArt | null>(null);
   const [isLiked, setIsLiked] = useState(false);
+
+  const { favorites, setFavorites } = useFavorites();
+  // console.log(favoritesList);
 
   useEffect(() => {
     fetch(
@@ -32,11 +36,27 @@ function CardArt({ id, likeCount, setLikeCount }: propsType) {
     if (isLiked === false) {
       setIsLiked(true);
       setLikeCount(likeCount + 1);
+      setFavorites((prev) => [...prev, fetchArt]);
     } else {
       setIsLiked(false);
       setLikeCount(likeCount - 1);
+      setFavorites((prev) =>
+        prev.filter((item) => item.title !== fetchArt?.title),
+      );
     }
   }
+
+  //avant test
+  // function toggleLike() {
+  //   if (isLiked === false) {
+  //     setIsLiked(true);
+  //     setLikeCount(likeCount + 1);
+  //   } else {
+  //     setIsLiked(false);
+  //     setLikeCount(likeCount - 1);
+  //   }
+  // }
+  //avant test
 
   return (
     <article className="cardArtContainer">
