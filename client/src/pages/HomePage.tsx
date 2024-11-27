@@ -14,7 +14,6 @@ interface Artwork {
 }
 
 const HomePage = () => {
-  const [likeCount, setLikeCount] = useState(0);
   const [artworks, setArtworks] = useState<Artwork[]>([]); // Tableau des données récupérées
   const [searchText, setSearchText] = useState(""); // État pour la barre de recherche
 
@@ -91,15 +90,13 @@ const HomePage = () => {
       <div className="searchcarcl">
         <SearchBar searchText={searchText} setSearchText={setSearchText} />
       </div>
-      <Compteur likeCount={likeCount} />
+      <Compteur />
       <div className="cardart">
         {filteredArtworks.length > 0 ? (
           filteredArtworks.map((artwork) => (
             <CardArt
               key={artwork.objectID} // Assure une clé unique pour chaque composant
               id={artwork.objectID.toString()}
-              likeCount={likeCount}
-              setLikeCount={setLikeCount}
             />
           ))
         ) : searchText ? (

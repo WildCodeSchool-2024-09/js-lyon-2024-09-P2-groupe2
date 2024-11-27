@@ -2,23 +2,27 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./CardArt.css";
+import { useFavorites } from "../contexts/FavoritesContext";
+
+interface artType {
+  objectID: string;
+}
 
 interface FetchArt {
   title: string;
   primaryImageSmall: string;
   artistDisplayName: string;
   country: string;
+  objectID: string;
 }
 
 interface propsType {
   id: string;
-  likeCount: number;
-  setLikeCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
-function CardArt({ id, likeCount, setLikeCount }: propsType) {
+function CardArt({ id }: propsType) {
   const [fetchArt, setFetchArt] = useState<FetchArt | null>(null);
-  const [isLiked, setIsLiked] = useState(false);
+  const { toggleFavorite, isArtLiked } = useFavorites();
 
   useEffect(() => {
     fetch(
@@ -28,15 +32,13 @@ function CardArt({ id, likeCount, setLikeCount }: propsType) {
       .then((responseJson) => setFetchArt(responseJson));
   }, [id]);
 
-  function toggleLike() {
-    if (isLiked === false) {
-      setIsLiked(true);
-      setLikeCount(likeCount + 1);
+  const handleLike = () => {
+    if (fetchArt) {
+      toggleFavorite(fetchArt as artType);
     } else {
-      setIsLiked(false);
-      setLikeCount(likeCount - 1);
+      console.error("fetchArt is null and cannot be added to favorites.");
     }
-  }
+  };
 
   return (
     <article className="cardArtContainer">
@@ -48,11 +50,10 @@ function CardArt({ id, likeCount, setLikeCount }: propsType) {
             alt={fetchArt.title}
           />
           <h2 className="imgTitle">{fetchArt.title}</h2>
-          <button type="button" className="likeButton" onClick={toggleLike}>
-            {isLiked === false ? "🤍" : "❤️"}
+          <button type="button" className="likeButton" onClick={handleLike}>
+            {isArtLiked(fetchArt.objectID) ? "❤️" : "🤍"}
           </button>
 
-          {/* Transmettre fetchArt dans state */}
           <Link to={`/article/${id}`} state={fetchArt}>
             <button type="button" className="detailsButton">
               See more
