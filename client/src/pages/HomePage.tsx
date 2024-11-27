@@ -4,12 +4,18 @@ import Compteur from "../components/Compteur";
 import SearchBar from "../components/SearchBar";
 import "./HomePage.css";
 
-interface ArtworkType {
+interface Artwork {
+  objectID: number;
   title: string;
+  primaryImageSmall: string;
+  artistDisplayName: string;
+  country: string;
 }
+
 const HomePage = () => {
   const [likeCount, setLikeCount] = useState(0);
-  const [artworks, setArtworks] = useState<ArtworkType[]>([]); // créer l'état du tableau d'objets qui vient des Promises
+  const [artworks, setArtworks] = useState<Artwork[]>([]); // Tableau des données récupérées
+  const [searchText, setSearchText] = useState(""); // État pour la barre de recherche
 
   const oeuvres = [
     "392000",
@@ -26,7 +32,6 @@ const HomePage = () => {
 
   useEffect(() => {
     Promise.all([
-      //à creuser pour la journée de refacto => optimiser
       fetch(
         `https://collectionapi.metmuseum.org/public/collection/v1/objects/${oeuvres[0]}`,
       ),
@@ -59,35 +64,42 @@ const HomePage = () => {
       ),
     ])
       .then((responses) =>
-        Promise.all<ArtworkType>(
-          responses.map((responses) => responses.json()),
-        ).then((artworksJson) => {
-          artworksJson.map((artworkApi) => {
-            const tmp: ArtworkType[] = artworks;
-            tmp.push(artworkApi);
-            setArtworks(tmp);
-          });
-        }),
+        Promise.all(responses.map((response) => response.json())),
       )
-      .then(() => console.log(artworks))
-      .catch((err) => console.log(err));
-  }, [artworks]);
+      .then((data) => {
+        setArtworks(data); // Met à jour l'état artworks avec les données récupérées
+      })
+      .catch((err) =>
+        console.log("Erreur lors de la récupération des données :", err),
+      );
+  }, []);
+
+  // Filtrer les œuvres en fonction du texte
+  const filteredArtworks = artworks.filter((artwork) =>
+    artwork.title?.toLowerCase().includes(searchText.toLowerCase()),
+  );
 
   return (
     <div className="sbhomepage">
       <div className="searchcarcl">
-        <SearchBar />
+        <SearchBar searchText={searchText} setSearchText={setSearchText} />
       </div>
       <Compteur likeCount={likeCount} />
       <div className="cardart">
-        {oeuvres.map((number) => (
-          <CardArt
-            key={number}
-            id={number}
-            likeCount={likeCount}
-            setLikeCount={setLikeCount}
-          />
-        ))}
+        {filteredArtworks.length > 0 ? (
+          filteredArtworks.map((artwork) => (
+            <CardArt
+              key={artwork.objectID} // Assure une clé unique pour chaque composant
+              id={artwork.objectID.toString()}
+              likeCount={likeCount}
+              setLikeCount={setLikeCount}
+            />
+          ))
+        ) : searchText ? (
+          <p>No results for "{searchText}"</p>
+        ) : (
+          <p>Chargement des œuvres...</p>
+        )}
       </div>
     </div>
   );
