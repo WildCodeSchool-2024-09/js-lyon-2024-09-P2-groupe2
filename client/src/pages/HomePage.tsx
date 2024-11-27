@@ -75,12 +75,12 @@ const HomePage = () => {
   return (
     <div className="sbhomepage">
       <div className="searchcarcl">
-      {/* Extraire ce composant et sa gestion dans une zone dédiée */}
+        {/* Extraire ce composant et sa gestion dans une zone dédiée */}
         <SearchBar />
       </div>
       <Compteur likeCount={likeCount} />
       <div className="cardart">
-      {/* Gérer le rendu des cartes via un composant intermédiaire */}
+        {/* Gérer le rendu des cartes via un composant intermédiaire */}
         {oeuvres.map((number) => (
           <CardArt
             key={number}

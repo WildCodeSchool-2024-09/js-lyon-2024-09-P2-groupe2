@@ -42,7 +42,7 @@ function CardArt({ id, likeCount, setLikeCount }: propsType) {
     <article className="cardArtContainer">
       {fetchArt ? (
         <>
-         {/* Extraire cette section en un composant CardArtImage*/}
+          {/* Extraire cette section en un composant CardArtImage*/}
           <img
             className="cardArtImg"
             src={fetchArt.primaryImageSmall}

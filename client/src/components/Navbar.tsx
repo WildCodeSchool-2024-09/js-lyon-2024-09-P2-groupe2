@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <nav className="navigation">
       <ul>
-      {/* Extraire chaque élément de navigation dans un composant pour éviter les répétitions */}
+        {/* Extraire chaque élément de navigation dans un composant pour éviter les répétitions */}
         <li>
           <NavLink
             to="/"
