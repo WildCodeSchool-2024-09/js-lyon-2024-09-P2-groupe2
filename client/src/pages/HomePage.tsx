@@ -4,12 +4,17 @@ import Compteur from "../components/Compteur";
 import SearchBar from "../components/SearchBar";
 import "./HomePage.css";
 
+// Interface pour définir la structure des données d'une œuvre d'art.
+
 interface ArtworkType {
-  title: string;
+  title: string; // Titre de l'œuvre d'art
 }
 const HomePage = () => {
+  // État pour suivre le nombre total de "likes" sur la page.
   const [likeCount, setLikeCount] = useState(0);
-  const [artworks, setArtworks] = useState<ArtworkType[]>([]); // État pour stocker les données des œuvres
+  // État pour stocker les détails des œuvres récupérées depuis l'API.
+  const [artworks, setArtworks] = useState<ArtworkType[]>([]);
+  // Liste des IDs des œuvres à afficher
   const oeuvres = [
     "392000",
     "897121",
@@ -22,10 +27,11 @@ const HomePage = () => {
     "36548",
     "435860",
   ];
-
+  // écupérer les détails des œuvres à partir de l'API
   useEffect(() => {
     Promise.all([
       //à creuser pour la journée de refacto => optimiser
+      // Chaque requête récupère les données d'une œuvre spécifique via son ID
       fetch(
         `https://collectionapi.metmuseum.org/public/collection/v1/objects/${oeuvres[0]}`,
       ),
@@ -58,6 +64,7 @@ const HomePage = () => {
       ),
     ])
       .then((responses) =>
+        // Une fois toutes les requêtes terminées, transforme chaque réponse en JSON
         Promise.all<ArtworkType>(
           responses.map((responses) => responses.json()),
         ).then((artworksJson) => {
@@ -68,8 +75,8 @@ const HomePage = () => {
           });
         }),
       )
-      .then(() => console.log(artworks))
-      .catch((err) => console.log(err));
+      .then(() => console.log(artworks)) // vérifie les données récupérées
+      .catch((err) => console.log(err)); // Gestion des erreurs dans la récupération des données
   }, [artworks]);
 
   return (
@@ -83,10 +90,10 @@ const HomePage = () => {
         {/* Gérer le rendu des cartes via un composant intermédiaire */}
         {oeuvres.map((number) => (
           <CardArt
-            key={number}
-            id={number}
-            likeCount={likeCount}
-            setLikeCount={setLikeCount}
+            key={number} // Clé unique pour chaque composant
+            id={number} // ID de l'œuvre transmis au composant enfant
+            likeCount={likeCount} // Nombre total de "likes"
+            setLikeCount={setLikeCount} // Fonction pour mettre à jour le compteur de "likes"
           />
         ))}
       </div>

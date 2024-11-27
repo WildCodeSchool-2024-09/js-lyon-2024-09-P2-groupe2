@@ -2,29 +2,29 @@ import { useLocation } from "react-router-dom";
 import "./Article.css";
 
 interface FetchArt {
-  title: string;
-  primaryImageSmall: string;
-  artistDisplayName: string;
-  country: string;
-  artistBeginDate: string;
-  artistEndDate: string;
-  medium: string;
-  creditLine: string;
-  geographyType: string;
-  city: string;
+  title: string; // Titre de l'œuvre d'art.
+  primaryImageSmall: string; // URL de l'image principale
+  artistDisplayName: string; // Nom de l'artiste
+  country: string; // Pays d'origine de l'œuvre
+  artistBeginDate: string; // Année de naissance de l'artiste
+  artistEndDate: string; // Année de décès de l'artiste
+  medium: string; // Matériaux ou techniques utilisés pour l'œuvre
+  creditLine: string; // Informations supplémentaires sur l'origine de l'œuvre
+  geographyType: string; // Type géographique lié à l'œuvre
+  city: string; // Ville associée à l'œuvre
 }
 
 function Article() {
   const location = useLocation();
   const artDetails = location.state as FetchArt;
-
+  // Si les détails de l'œuvre d'art sont absents, afficher un message d'erreur.
   if (!artDetails) {
     return <div>Work not found</div>;
   }
 
   return (
     <div>
-      {/*Extraire cette section en un composant ArticleImage*/}
+      {/* Conteneur pour l'image de l'œuvre d'art */}
       <section id="imageContainer">
         <img
           className="imgContainer"
@@ -32,7 +32,7 @@ function Article() {
           alt={artDetails.title}
         />
       </section>
-      {/* Extraire cette section en un composant ArticleDetails*/}
+      {/* Conteneur pour les détails textuels de l'article */}
       <section id="articleTextContainer">
         <h1>{artDetails.title}</h1>
         <h2>Artist: {artDetails.artistDisplayName}</h2>

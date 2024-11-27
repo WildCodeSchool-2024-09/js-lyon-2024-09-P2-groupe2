@@ -1,11 +1,12 @@
-import "./Navbar.css";
+import "./Navbar.css"; // Importation du fichier CSS pour styliser la barre de navigation
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
     <nav className="navigation">
       <ul>
-        {/* Extraire chaque élément de navigation dans un composant pour éviter les répétitions */}
+         {/* Liste non ordonnée contenant les liens de navigation. */}
+         {/* Lien vers la page d'accueil */}
         <li>
           <NavLink
             to="/"
@@ -16,6 +17,7 @@ function Navbar() {
             Home
           </NavLink>
         </li>
+         {/* Lien vers la page des favoris */}
         <li>
           <NavLink
             to="/favorites"
@@ -26,6 +28,7 @@ function Navbar() {
             Favourites
           </NavLink>
         </li>
+         {/* Lien vers la page "À propos" */}
         <li>
           <NavLink
             to="/about"
