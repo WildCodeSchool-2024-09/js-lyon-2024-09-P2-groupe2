@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import "./CardArt.css";
 import { useFavorites } from "../contexts/FavoritesContext";
 
+interface artType {
+  objectID: string;
+}
+
 interface FetchArt {
   title: string;
   primaryImageSmall: string;
@@ -29,7 +33,11 @@ function CardArt({ id }: propsType) {
   }, [id]);
 
   const handleLike = () => {
-    toggleFavorite(fetchArt);
+    if (fetchArt) {
+      toggleFavorite(fetchArt as artType);
+    } else {
+      console.error("fetchArt is null and cannot be added to favorites.");
+    }
   };
 
   return (
