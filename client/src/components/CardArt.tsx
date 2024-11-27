@@ -34,19 +34,22 @@ function CardArt({ id, likeCount, setLikeCount }: propsType) {
 
   function toggleLike() {
     if (isLiked === false) {
-      setIsLiked(true);
-      setLikeCount(likeCount + 1);
-      setFavorites((prev) => [...prev, fetchArt]);
+      if (!favorites.some((item) => item.objectID === fetchArt?.objectID)) {
+        setIsLiked(true);
+        setLikeCount(likeCount + 1);
+        setFavorites((prev) => [...prev, fetchArt]);
+      }
     } else {
       setIsLiked(false);
       setLikeCount(likeCount - 1);
       setFavorites((prev) =>
-        prev.filter((item) => item.title !== fetchArt?.title),
+        prev.filter((item) => item.objectID !== fetchArt?.objectID),
       );
     }
   }
 
   //avant test
+
   // function toggleLike() {
   //   if (isLiked === false) {
   //     setIsLiked(true);
@@ -56,6 +59,7 @@ function CardArt({ id, likeCount, setLikeCount }: propsType) {
   //     setLikeCount(likeCount - 1);
   //   }
   // }
+
   //avant test
 
   return (
