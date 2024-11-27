@@ -8,8 +8,10 @@ function App() {
     <>
       <Header />
       <main>
+    {/* Doit afficher une navigation ou des informations dynamiques */}
         <Outlet />
       </main>
+      {/* Permettre la personnalisation du Footer*/}
       <Footer />
     </>
   );

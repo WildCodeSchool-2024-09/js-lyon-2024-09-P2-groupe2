@@ -24,6 +24,7 @@ function Article() {
 
   return (
     <div>
+      {/*Extraire cette section en un composant ArticleImage*/}
       <section id="imageContainer">
         <img
           className="imgContainer"
@@ -31,6 +32,7 @@ function Article() {
           alt={artDetails.title}
         />
       </section>
+      {/* Extraire cette section en un composant ArticleDetails*/}
       <section id="articleTextContainer">
         <h1>{artDetails.title}</h1>
         <h2>Artist: {artDetails.artistDisplayName}</h2>

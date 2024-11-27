@@ -19,7 +19,7 @@ interface propsType {
 function CardArt({ id, likeCount, setLikeCount }: propsType) {
   const [fetchArt, setFetchArt] = useState<FetchArt | null>(null);
   const [isLiked, setIsLiked] = useState(false);
-
+  // Extraire cette logique dans une fonction utilitaire ou un hook personnalisé
   useEffect(() => {
     fetch(
       `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`,
@@ -27,7 +27,7 @@ function CardArt({ id, likeCount, setLikeCount }: propsType) {
       .then((resultatApi) => resultatApi.json())
       .then((responseJson) => setFetchArt(responseJson));
   }, [id]);
-
+  // Extraire la logique de gestion des likes dans une fonction ou un hook réutilisable
   function toggleLike() {
     if (isLiked === false) {
       setIsLiked(true);
@@ -42,17 +42,19 @@ function CardArt({ id, likeCount, setLikeCount }: propsType) {
     <article className="cardArtContainer">
       {fetchArt ? (
         <>
+         {/* Extraire cette section en un composant CardArtImage*/}
           <img
             className="cardArtImg"
             src={fetchArt.primaryImageSmall}
             alt={fetchArt.title}
           />
           <h2 className="imgTitle">{fetchArt.title}</h2>
+          {/* Extraire le bouton "Like" dans un composant réutilisable*/}
           <button type="button" className="likeButton" onClick={toggleLike}>
             {isLiked === false ? "🤍" : "❤️"}
           </button>
 
-          {/* Transmettre fetchArt dans state */}
+          {/* Transmettre fetchArt dans state*/}
           <Link to={`/article/${id}`} state={fetchArt}>
             <button type="button" className="detailsButton">
               See more

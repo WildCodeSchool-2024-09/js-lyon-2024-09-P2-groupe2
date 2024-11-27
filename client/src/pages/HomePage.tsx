@@ -9,8 +9,7 @@ interface ArtworkType {
 }
 const HomePage = () => {
   const [likeCount, setLikeCount] = useState(0);
-  const [artworks, setArtworks] = useState<ArtworkType[]>([]); // créer l'état du tableau d'objets qui vient des Promises
-
+  const [artworks, setArtworks] = useState<ArtworkType[]>([]); // État pour stocker les données des œuvres
   const oeuvres = [
     "392000",
     "897121",
@@ -76,10 +75,12 @@ const HomePage = () => {
   return (
     <div className="sbhomepage">
       <div className="searchcarcl">
+      {/* Extraire ce composant et sa gestion dans une zone dédiée */}
         <SearchBar />
       </div>
       <Compteur likeCount={likeCount} />
       <div className="cardart">
+      {/* Gérer le rendu des cartes via un composant intermédiaire */}
         {oeuvres.map((number) => (
           <CardArt
             key={number}
