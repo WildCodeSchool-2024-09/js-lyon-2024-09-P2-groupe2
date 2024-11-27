@@ -3,6 +3,7 @@ import CardArt from "../components/CardArt";
 import Compteur from "../components/Compteur";
 import SearchBar from "../components/SearchBar";
 import "./HomePage.css";
+// on a du typer Artwork pour pouvoir l'utiliser dans l'état de la liste "artworks". Un cast explicite (ou assertion de type en TypeScript) est une manière de dire à TypeScript : "Je sais que cette donnée a ce type précis, même si TypeScript ne peut pas le déduire automatiquement." Cela permet de forcer TypeScript à traiter une variable comme étant d'un type spécifique. En gros, on a fait du forcing
 
 interface Artwork {
   objectID: number;
@@ -66,17 +67,23 @@ const HomePage = () => {
       .then((responses) =>
         Promise.all(responses.map((response) => response.json())),
       )
-      .then((data) => {
-        setArtworks(data); // Met à jour l'état artworks avec les données récupérées
+      .then((artworksJson) => {
+        setArtworks(artworksJson); // Met à jour l'état artworks avec les données récupérées
       })
       .catch((err) =>
         console.log("Erreur lors de la récupération des données :", err),
       );
   }, []);
 
-  // Filtrer les œuvres en fonction du texte
-  const filteredArtworks = artworks.filter((artwork) =>
-    artwork.title?.toLowerCase().includes(searchText.toLowerCase()),
+  // Filtrer les œuvres en fonction du titre et de l'artiste
+  const filteredArtworks = artworks.filter(
+    (artwork) =>
+      // on utilise un boléen pour inclure le titre et l'artiste dans la recherche "||"
+      // toLowerCase va mettre tout en minuscules même si l'utilisateur tape en mayuscules.
+      artwork.title?.toLowerCase().includes(searchText.toLowerCase()) ||
+      artwork.artistDisplayName
+        ?.toLowerCase()
+        .includes(searchText.toLowerCase()),
   );
 
   return (
@@ -98,7 +105,7 @@ const HomePage = () => {
         ) : searchText ? (
           <p>No results for "{searchText}"</p>
         ) : (
-          <p>Chargement des œuvres...</p>
+          <p>Loading artworks...</p>
         )}
       </div>
     </div>
