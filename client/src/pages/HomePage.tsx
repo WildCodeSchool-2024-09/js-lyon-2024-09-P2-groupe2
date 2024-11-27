@@ -1,12 +1,9 @@
-import { useState } from "react";
 import CardArt from "../components/CardArt";
 import Compteur from "../components/Compteur";
 import SearchBar from "../components/SearchBar";
 import "./HomePage.css";
 
 const HomePage = () => {
-  const [likeCount, setLikeCount] = useState(0);
-
   const oeuvres = [
     "392000",
     "897121",
@@ -25,15 +22,10 @@ const HomePage = () => {
       <div className="searchcarcl">
         <SearchBar />
       </div>
-      <Compteur likeCount={likeCount} />
+      <Compteur />
       <div className="cardart">
         {oeuvres.map((number) => (
-          <CardArt
-            key={number}
-            id={number}
-            likeCount={likeCount}
-            setLikeCount={setLikeCount}
-          />
+          <CardArt key={number} id={number} />
         ))}
       </div>
     </div>

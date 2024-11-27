@@ -9,20 +9,16 @@ interface FetchArt {
   primaryImageSmall: string;
   artistDisplayName: string;
   country: string;
+  objectID: string;
 }
 
 interface propsType {
   id: string;
-  likeCount: number | null;
-  setLikeCount: React.Dispatch<React.SetStateAction<number>> | null;
 }
 
-function CardArt({ id, likeCount, setLikeCount }: propsType) {
+function CardArt({ id }: propsType) {
   const [fetchArt, setFetchArt] = useState<FetchArt | null>(null);
-  const [isLiked, setIsLiked] = useState(false);
-
-  const { favorites, setFavorites } = useFavorites();
-  // console.log(favoritesList);
+  const { toggleFavorite, isArtLiked } = useFavorites();
 
   useEffect(() => {
     fetch(
@@ -32,35 +28,9 @@ function CardArt({ id, likeCount, setLikeCount }: propsType) {
       .then((responseJson) => setFetchArt(responseJson));
   }, [id]);
 
-  function toggleLike() {
-    if (isLiked === false) {
-      if (!favorites.some((item) => item.objectID === fetchArt?.objectID)) {
-        setIsLiked(true);
-        setLikeCount(likeCount + 1);
-        setFavorites((prev) => [...prev, fetchArt]);
-      }
-    } else {
-      setIsLiked(false);
-      setLikeCount(likeCount - 1);
-      setFavorites((prev) =>
-        prev.filter((item) => item.objectID !== fetchArt?.objectID),
-      );
-    }
-  }
-
-  //avant test
-
-  // function toggleLike() {
-  //   if (isLiked === false) {
-  //     setIsLiked(true);
-  //     setLikeCount(likeCount + 1);
-  //   } else {
-  //     setIsLiked(false);
-  //     setLikeCount(likeCount - 1);
-  //   }
-  // }
-
-  //avant test
+  const handleLike = () => {
+    toggleFavorite(fetchArt);
+  };
 
   return (
     <article className="cardArtContainer">
@@ -72,11 +42,10 @@ function CardArt({ id, likeCount, setLikeCount }: propsType) {
             alt={fetchArt.title}
           />
           <h2 className="imgTitle">{fetchArt.title}</h2>
-          <button type="button" className="likeButton" onClick={toggleLike}>
-            {isLiked === false ? "🤍" : "❤️"}
+          <button type="button" className="likeButton" onClick={handleLike}>
+            {isArtLiked(fetchArt.objectID) ? "❤️" : "🤍"}
           </button>
 
-          {/* Transmettre fetchArt dans state */}
           <Link to={`/article/${id}`} state={fetchArt}>
             <button type="button" className="detailsButton">
               See more
