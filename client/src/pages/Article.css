@@ -1,53 +1,99 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-#imageContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.5em;
-  width: 600px 625px;
-  margin: 12px;
-  border-radius: 1em;
-  background-color: #cbcbcb;
-  max-width: 100%;
-  max-height: 70%;
-  width: fit-content;
-  block-size: fit-content;
-  margin: 15px;
+@media (min-width: 390px) and (max-width: 750px) {
+  #imageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5em;
+    width: 600px 625px;
+    margin: 12px;
+    border-radius: 1em;
+    background-color: #cbcbcb;
+    max-width: 100%;
+    max-height: 70%;
+    width: fit-content;
+    block-size: fit-content;
+    margin: 15px;
+  }
+  .imgContainer {
+    max-width: 100%;
+  }
+  #articleTextContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5em;
+    width: 600px 625px;
+    margin: 12px;
+    border-radius: 1em;
+  }
+  h1 {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+    margin: inherit;
+  }
+  h2 {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 700;
+    font-style: italic;
+    margin: inherit;
+  }
+  h3 {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    margin: inherit;
+  }
+  p {
+    text-align: inherit;
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 300;
+    font-style: normal;
+  }
 }
-.imgContainer {
-  max-width: 100%;
-}
-#articleTextContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.5em;
-  width: 600px 625px;
-  margin: 12px;
-  border-radius: 1em;
-}
-h1 {
-  font-family: "Ubuntu Mono", monospace;
-  font-weight: 700;
-  font-style: normal;
-  margin: inherit;
-}
-h2 {
-  font-family: "Ubuntu Mono", monospace;
-  font-weight: 700;
-  font-style: italic;
-  margin: inherit;
-}
-h3 {
-  font-family: "Ubuntu Mono", monospace;
-  font-weight: 400;
-  font-style: normal;
-  margin: inherit;
-}
-p {
-  text-align: inherit;
-  font-family: "Ubuntu Mono", monospace;
-  font-weight: 300;
-  font-style: normal;
+@media (min-width: 750px) and (max-width: 1800px) {
+  .articleStyle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2%;
+  }
+  .imgContainer {
+    max-width: 100%;
+  }
+  #articleTextContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5em;
+    width: 600px 625px;
+    margin: 12px;
+    border-radius: 1em;
+  }
+  h1 {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+    margin: inherit;
+  }
+  h2 {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 700;
+    font-style: italic;
+    margin: inherit;
+  }
+  h3 {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    margin: inherit;
+  }
+  p {
+    text-align: inherit;
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 300;
+    font-style: normal;
+  }
 }

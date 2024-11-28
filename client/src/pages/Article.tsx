@@ -23,7 +23,7 @@ function Article() {
   }
 
   return (
-    <div>
+    <div className="articleStyle">
       <section id="imageContainer">
         <img
           className="imgContainer"
