@@ -28,25 +28,25 @@
     margin: 12px;
     border-radius: 1em;
   }
-  h1 {
+  #articleTextContainer h1 {
     font-family: "Ubuntu Mono", monospace;
     font-weight: 700;
     font-style: normal;
     margin: inherit;
   }
-  h2 {
+  #articleTextContainer h2 {
     font-family: "Ubuntu Mono", monospace;
     font-weight: 700;
     font-style: italic;
     margin: inherit;
   }
-  h3 {
+  #articleTextContainer h3 {
     font-family: "Ubuntu Mono", monospace;
     font-weight: 400;
     font-style: normal;
     margin: inherit;
   }
-  p {
+  #articleTextContainer p {
     text-align: inherit;
     font-family: "Ubuntu Mono", monospace;
     font-weight: 300;
@@ -72,25 +72,25 @@
     margin: 12px;
     border-radius: 1em;
   }
-  h1 {
+  #articleTextContainer h1 {
     font-family: "Ubuntu Mono", monospace;
     font-weight: 700;
     font-style: normal;
     margin: inherit;
   }
-  h2 {
+  #articleTextContainer h2 {
     font-family: "Ubuntu Mono", monospace;
     font-weight: 700;
     font-style: italic;
     margin: inherit;
   }
-  h3 {
+  #articleTextContainer h3 {
     font-family: "Ubuntu Mono", monospace;
     font-weight: 400;
     font-style: normal;
     margin: inherit;
   }
-  p {
+  #articleTextContainer p {
     text-align: inherit;
     font-family: "Ubuntu Mono", monospace;
     font-weight: 300;
