@@ -90,7 +90,9 @@ const HomePage = () => {
       <div className="searchcarcl">
         <SearchBar searchText={searchText} setSearchText={setSearchText} />
       </div>
-      <Compteur />
+      <div className="compteur">
+        <Compteur />
+      </div>
       <div className="cardart">
         {filteredArtworks.length > 0 ? (
           filteredArtworks.map((artwork) => (

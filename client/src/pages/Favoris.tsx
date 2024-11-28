@@ -18,7 +18,7 @@ export default function Favoris() {
             </div>
           </>
         ) : (
-          <p>No liked arts yet</p>
+          <p>No liked arts yet! Visit our Home Page.</p>
         )}
       </section>
     </>
