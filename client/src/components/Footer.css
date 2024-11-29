@@ -1,4 +1,4 @@
-@media (min-width: 750px) and (max-width: 1800px) {
+@media (min-width: 400px) {
   .footer-wrapper {
     background-color: #00296b;
     display: flex;
@@ -39,7 +39,7 @@
     font-family: monospace;
   }
 }
-@media (min-width: 390px) and (max-width: 750px) {
+@media (min-width: 1px) and (max-width: 400px) {
   .footer-wrapper {
     background-color: #00296b;
     display: flex;
@@ -58,7 +58,7 @@
     max-width: 500px;
     text-align: center;
     margin-bottom: 20px;
-    width: 50%;
+    width: 80vw;
   }
 
   .footer-titre {
@@ -83,4 +83,5 @@
   width: 3em;
   margin-bottom: 10px;
   padding-left: 0.5em;
+  cursor: pointer;
 }
