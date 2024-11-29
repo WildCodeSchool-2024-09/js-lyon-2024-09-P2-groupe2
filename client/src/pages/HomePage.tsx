@@ -5,7 +5,7 @@ import SearchBar from "../components/SearchBar";
 import "./HomePage.css";
 // on a du typer Artwork pour pouvoir l'utiliser dans l'état de la liste "artworks". Un cast explicite (ou assertion de type en TypeScript) est une manière de dire à TypeScript : "Je sais que cette donnée a ce type précis, même si TypeScript ne peut pas le déduire automatiquement." Cela permet de forcer TypeScript à traiter une variable comme étant d'un type spécifique. En gros, on a fait du forcing
 
-interface Artwork {
+interface ArtworkType {
   objectID: number;
   title: string;
   primaryImageSmall: string;
@@ -14,7 +14,7 @@ interface Artwork {
 }
 
 const HomePage = () => {
-  const [artworks, setArtworks] = useState<Artwork[]>([]); // Tableau des données récupérées
+  const [artworks, setArtworks] = useState<ArtworkType[]>([]); // État pour stocker les détails des œuvres récupérées depuis l'API.
   const [searchText, setSearchText] = useState(""); // État pour la barre de recherche
 
   const oeuvres = [
@@ -29,9 +29,10 @@ const HomePage = () => {
     "36548",
     "435860",
   ];
-
+  // écupérer les détails des œuvres à partir de l'API
   useEffect(() => {
     Promise.all([
+      // Chaque requête récupère les données d'une œuvre spécifique via son ID
       fetch(
         `https://collectionapi.metmuseum.org/public/collection/v1/objects/${oeuvres[0]}`,
       ),
@@ -88,6 +89,7 @@ const HomePage = () => {
   return (
     <div className="sbhomepage">
       <div className="searchcarcl">
+        {/* Extraire ce composant et sa gestion dans une zone dédiée */}
         <SearchBar searchText={searchText} setSearchText={setSearchText} />
       </div>
       <div className="compteur">
@@ -96,9 +98,10 @@ const HomePage = () => {
       <div className="cardart">
         {filteredArtworks.length > 0 ? (
           filteredArtworks.map((artwork) => (
+            // Gérer le rendu des cartes via un composant intermédiaire */
             <CardArt
               key={artwork.objectID} // Assure une clé unique pour chaque composant
-              id={artwork.objectID.toString()}
+              id={artwork.objectID.toString()} // ID de l'œuvre transmis au composant enfant
             />
           ))
         ) : searchText ? (
