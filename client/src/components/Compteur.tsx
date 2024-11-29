@@ -1,14 +1,13 @@
 import "./Compteur.css";
+import { useFavorites } from "../contexts/FavoritesContext";
 
-interface compteurType {
-  likeCount: number;
-}
+export default function Compteur() {
+  const { favorites } = useFavorites();
 
-export default function Compteur({ likeCount }: compteurType) {
   return (
     <div className="compteur">
       <h2>
-        You liked {likeCount} artwork{likeCount > 1 ? "s" : ""}
+        You liked {favorites.length} artwork{favorites.length > 1 ? "s" : ""}
       </h2>
     </div>
   );

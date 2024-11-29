@@ -8,6 +8,7 @@ import HomePage from "../src/pages/HomePage";
 
 // Import the main app component
 import App from "./App";
+import { FavoritesProvider } from "./contexts/FavoritesContext";
 import A_Propos from "./pages/A_propos";
 import Article from "./pages/Article";
 import Favoris from "./pages/Favoris";
@@ -61,7 +62,9 @@ if (rootElement == null) {
 // Render the app inside the root element
 createRoot(rootElement).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <FavoritesProvider>
+      <RouterProvider router={router} />
+    </FavoritesProvider>
   </StrictMode>,
 );
 
