@@ -3,18 +3,20 @@ import CardArt from "../components/CardArt";
 import Compteur from "../components/Compteur";
 import SearchBar from "../components/SearchBar";
 import "./HomePage.css";
-
-// Interface pour définir la structure des données d'une œuvre d'art.
+// on a du typer Artwork pour pouvoir l'utiliser dans l'état de la liste "artworks". Un cast explicite (ou assertion de type en TypeScript) est une manière de dire à TypeScript : "Je sais que cette donnée a ce type précis, même si TypeScript ne peut pas le déduire automatiquement." Cela permet de forcer TypeScript à traiter une variable comme étant d'un type spécifique. En gros, on a fait du forcing
 
 interface ArtworkType {
-  title: string; // Titre de l'œuvre d'art
+  objectID: number;
+  title: string;
+  primaryImageSmall: string;
+  artistDisplayName: string;
+  country: string;
 }
+
 const HomePage = () => {
-  // État pour suivre le nombre total de "likes" sur la page.
-  const [likeCount, setLikeCount] = useState(0);
-  // État pour stocker les détails des œuvres récupérées depuis l'API.
-  const [artworks, setArtworks] = useState<ArtworkType[]>([]);
-  // Liste des IDs des œuvres à afficher
+  const [artworks, setArtworks] = useState<ArtworkType[]>([]); // État pour stocker les détails des œuvres récupérées depuis l'API.
+  const [searchText, setSearchText] = useState(""); // État pour la barre de recherche
+
   const oeuvres = [
     "392000",
     "897121",
@@ -30,7 +32,6 @@ const HomePage = () => {
   // écupérer les détails des œuvres à partir de l'API
   useEffect(() => {
     Promise.all([
-      //à creuser pour la journée de refacto => optimiser
       // Chaque requête récupère les données d'une œuvre spécifique via son ID
       fetch(
         `https://collectionapi.metmuseum.org/public/collection/v1/objects/${oeuvres[0]}`,
@@ -64,38 +65,50 @@ const HomePage = () => {
       ),
     ])
       .then((responses) =>
-        // Une fois toutes les requêtes terminées, transforme chaque réponse en JSON
-        Promise.all<ArtworkType>(
-          responses.map((responses) => responses.json()),
-        ).then((artworksJson) => {
-          artworksJson.map((artworkApi) => {
-            const tmp: ArtworkType[] = artworks;
-            tmp.push(artworkApi);
-            setArtworks(tmp);
-          });
-        }),
+        Promise.all(responses.map((response) => response.json())),
       )
-      .then(() => console.log(artworks)) // vérifie les données récupérées
-      .catch((err) => console.log(err)); // Gestion des erreurs dans la récupération des données
-  }, [artworks]);
+      .then((artworksJson) => {
+        setArtworks(artworksJson); // Met à jour l'état artworks avec les données récupérées
+      })
+      .catch((err) =>
+        console.log("Erreur lors de la récupération des données :", err),
+      );
+  }, []);
+
+  // Filtrer les œuvres en fonction du titre et de l'artiste
+  const filteredArtworks = artworks.filter(
+    (artwork) =>
+      // on utilise un boléen pour inclure le titre et l'artiste dans la recherche "||"
+      // toLowerCase va mettre tout en minuscules même si l'utilisateur tape en mayuscules.
+      artwork.title?.toLowerCase().includes(searchText.toLowerCase()) ||
+      artwork.artistDisplayName
+        ?.toLowerCase()
+        .includes(searchText.toLowerCase()),
+  );
 
   return (
     <div className="sbhomepage">
       <div className="searchcarcl">
         {/* Extraire ce composant et sa gestion dans une zone dédiée */}
-        <SearchBar />
+        <SearchBar searchText={searchText} setSearchText={setSearchText} />
       </div>
-      <Compteur likeCount={likeCount} />
+      <div className="compteur">
+        <Compteur />
+      </div>
       <div className="cardart">
-        {/* Gérer le rendu des cartes via un composant intermédiaire */}
-        {oeuvres.map((number) => (
-          <CardArt
-            key={number} // Clé unique pour chaque composant
-            id={number} // ID de l'œuvre transmis au composant enfant
-            likeCount={likeCount} // Nombre total de "likes"
-            setLikeCount={setLikeCount} // Fonction pour mettre à jour le compteur de "likes"
-          />
-        ))}
+        {filteredArtworks.length > 0 ? (
+          filteredArtworks.map((artwork) => (
+            // Gérer le rendu des cartes via un composant intermédiaire */
+            <CardArt
+              key={artwork.objectID} // Assure une clé unique pour chaque composant
+              id={artwork.objectID.toString()} // ID de l'œuvre transmis au composant enfant
+            />
+          ))
+        ) : searchText ? (
+          <p>No results for "{searchText}"</p>
+        ) : (
+          <p>Loading artworks...</p>
+        )}
       </div>
     </div>
   );

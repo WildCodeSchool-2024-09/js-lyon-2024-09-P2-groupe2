@@ -23,7 +23,7 @@ function Article() {
   }
 
   return (
-    <div>
+    <div className="articleStyle">
       {/* Conteneur pour l'image de l'œuvre d'art */}
       <section id="imageContainer">
         <img

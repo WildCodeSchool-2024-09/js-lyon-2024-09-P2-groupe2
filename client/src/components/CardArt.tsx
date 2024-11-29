@@ -2,24 +2,24 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./CardArt.css";
+import { useFavorites } from "../contexts/FavoritesContext";
 
-interface FetchArt {
-  title: string; // Titre de l'œuvre
-  primaryImageSmall: string; // URL de l'image principale de l'œuvre
-  artistDisplayName: string; // Nom de l'artiste
-  country: string; // Pays d'origine de l'œuvre
+interface artType {
+  title: string;
+  primaryImageSmall: string;
+  artistDisplayName: string;
+  country: string;
+  objectID: string;
 }
 
 interface propsType {
-  id: string; // ID unique pour identifier l'œuvre
-  likeCount: number; // Nombre actuel de likes
-  setLikeCount: React.Dispatch<React.SetStateAction<number>>; // Fonction pour mettre à jour le nombre de likes
+  id: string;
 }
 
-function CardArt({ id, likeCount, setLikeCount }: propsType) {
-  const [fetchArt, setFetchArt] = useState<FetchArt | null>(null); // État pour stocker les données de l'œuvre récupérées
-  const [isLiked, setIsLiked] = useState(false); // État pour gérer si l'œuvre est "aimée" ou non
-  // Extraire cette logique dans une fonction utilitaire ou un hook personnalisé
+function CardArt({ id }: propsType) {
+  const [fetchArt, setFetchArt] = useState<artType | null>(null); // État pour stocker les données de l'œuvre récupérées
+  const { toggleFavorite, isArtLiked } = useFavorites(); // État pour gérer si l'œuvre est "aimée" ou non
+
   useEffect(() => {
     fetch(
       `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`,
@@ -30,15 +30,13 @@ function CardArt({ id, likeCount, setLikeCount }: propsType) {
 
   //Fonction pour gérer les "likes"
 
-  function toggleLike() {
-    if (isLiked === false) {
-      setIsLiked(true); // L'œuvre est maintenant aimée
-      setLikeCount(likeCount + 1); // Augmente le compteur de likes
+  const handleLike = () => {
+    if (fetchArt) {
+      toggleFavorite(fetchArt);
     } else {
-      setIsLiked(false); // L'œuvre n'est plus aimée
-      setLikeCount(likeCount - 1); // Diminue le compteur de likes
+      console.error("fetchArt is null and cannot be added to favorites.");
     }
-  }
+  };
 
   return (
     <article className="cardArtContainer">
@@ -52,9 +50,8 @@ function CardArt({ id, likeCount, setLikeCount }: propsType) {
           />
           <h2 className="imgTitle">{fetchArt.title}</h2>
           {/* Bouton pour gérer les "likes" */}
-          <button type="button" className="likeButton" onClick={toggleLike}>
-            {isLiked === false ? "🤍" : "❤️"}
-            {/* Change l'icône selon l'état de "like" */}
+          <button type="button" className="likeButton" onClick={handleLike}>
+            {isArtLiked(fetchArt.objectID) ? "❤️" : "🤍"}
           </button>
 
           {/* Bouton pour afficher plus de détails */}
