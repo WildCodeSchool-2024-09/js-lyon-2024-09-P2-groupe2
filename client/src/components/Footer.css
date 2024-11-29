@@ -1,38 +1,86 @@
-.footer-wrapper {
-  background-color: #00296b;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 2em;
-  padding-bottom: 2em;
-  font-family: monospace;
-  color: #000;
+@media (min-width: 750px) and (max-width: 1800px) {
+  .footer-wrapper {
+    background-color: #00296b;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    font-family: monospace;
+    color: #000;
+    padding-right: 1em;
+    padding-left: 1em;
+  }
+
+  .footer-cadre {
+    background-color: #ffcd29;
+    border-radius: 15px;
+    width: 60%;
+    max-width: 500px;
+    text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
+
+  .footer-titre {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .footer-texte {
+    line-height: 1.5;
+  }
+
+  .footer-copyright {
+    background-color: #ffd60a;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: monospace;
+  }
+}
+@media (min-width: 390px) and (max-width: 750px) {
+  .footer-wrapper {
+    background-color: #00296b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    font-family: monospace;
+    color: #000;
+  }
+
+  .footer-cadre {
+    background-color: #ffcd29;
+    border-radius: 15px;
+    max-width: 500px;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 50%;
+  }
+
+  .footer-titre {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .footer-texte {
+    line-height: 1.5;
+  }
+
+  .footer-copyright {
+    background-color: #ffd60a;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: monospace;
+  }
 }
 
-.footer-cadre {
-  background-color: #ffcd29;
-  padding: 20px;
-  border-radius: 15px;
-  width: 80%;
-  max-width: 500px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.footer-titre {
-  font-weight: bold;
+.footer-logos img {
+  width: 3em;
   margin-bottom: 10px;
-}
-
-.footer-texte {
-  line-height: 1.5;
-}
-
-.footer-copyright {
-  background-color: #ffd60a;
-  padding: 10px 20px;
-  border-radius: 10px;
-  text-align: center;
-  font-family: monospace;
+  padding-left: 0.5em;
 }
