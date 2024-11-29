@@ -1,5 +1,5 @@
 import "./A_propos.css";
-import dreamTeam from "../assets/images/dreamteam.png";
+import dreamTeam from "../assets/images/dreamteam.jpg";
 function A_Propos() {
   return (
     <section className="mainAbout">
